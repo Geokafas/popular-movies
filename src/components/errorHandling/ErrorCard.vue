@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="alert alert-danger" role="alert">
+    <div class="alert alert-danger" ref="alert">
       <strong>Oh snap!</strong> Something went wrong. Try reloading the page.
       <br />
       {{ exception }}
@@ -10,7 +10,7 @@
 </template>
 <script>
 export default {
-  name: "error-card",
+  name: "error_card",
   props: ["exception"],
 };
 </script>

@@ -30,7 +30,12 @@ export default {
         return obj;
         //loading has finished, but nothing is selected, show placeholder
       } else if (this.$props.selectedId === 0 && !this.$props.loading) {
-        return this.$props.movieDetailsList[0];
+        if (this.$props.movieDetailsList.length > 0) {
+          return this.$props.movieDetailsList[0];
+        } else {
+          //do not return undifined
+          return [];
+        }
       } else {
         return [];
       }

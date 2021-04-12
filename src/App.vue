@@ -28,7 +28,7 @@
 import nav_bar from "./components/shared/Header";
 import movies_list from "./components/listView/MoviesList";
 import movie_details from "./components/detailsView/MovieDetails";
-import error_boundary from "./components/erroHandling/ErrorBoundary";
+import error_boundary from "./components/errorHandling/ErrorBoundary";
 import { mapActions, mapGetters } from "vuex";
 
 export default {

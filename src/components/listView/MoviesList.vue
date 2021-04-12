@@ -3,7 +3,7 @@
     <div class="container">
       <ul class="list-group">
         <movies_list_item
-          v-for="title in listPages"
+          v-for="title in slicedMovieList"
           :title="title.title"
           :id="title.id"
           :selected-id="selectedId"
@@ -14,14 +14,16 @@
         <button
           @click="modifier -= 10"
           class="previous-btn float-left"
-          :disabled="hasPrevPage"
+          :disabled="disablePrevPage"
+          ref="prevbtn"
         >
           &laquo;
         </button>
         <button
           @click="modifier += 10"
           class="next-btn float-right"
-          :disabled="hasNextpage"
+          :disabled="disableNextPage"
+          ref="nextbtn"
         >
           &raquo;
         </button>
@@ -44,7 +46,7 @@ export default {
   props: ["titlesList", "selectedTab", "selectedId"],
   components: { movies_list_item: movies_list_item },
   computed: {
-    listPages() {
+    slicedMovieList() {
       if (this.$props.titlesList.length < 10) {
         return this.$props.titlesList;
       } else {
@@ -55,9 +57,9 @@ export default {
         return temp;
       }
     },
-    hasNextpage() {
+    disableNextPage() {
       if (this.modifier > 0) {
-        console.log(this.$props.titlesList.length / (this.modifier + 10));
+        //console.log(this.$props.titlesList.length / (this.modifier + 10));
         if (this.$props.titlesList.length / (this.modifier + 10) > 1) {
           return false;
         } else {
@@ -67,8 +69,8 @@ export default {
         return false;
       }
     },
-    hasPrevPage() {
-      if (this.modifier === 0) {
+    disablePrevPage() {
+      if (this.modifier <= 0) {
         return true;
       } else {
         return false;

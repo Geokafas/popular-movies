@@ -15,7 +15,7 @@
 <script>
 import error_card from "./ErrorCard";
 export default {
-  name: "error-boundary",
+  name: "error_boundary",
   components: { app_error_card: error_card },
   props: ["stopPropagation", "exception"],
   data() {
