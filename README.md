@@ -1,5 +1,9 @@
 # popular-movies
 
+
+### Popular-Movies is live at:
+https://vue-popular-movies.herokuapp.com/
+
 ## Project setup
 ```
 npm install
@@ -24,6 +28,3 @@ npm run test:unit
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
