@@ -7,7 +7,7 @@
     <!-- end spinner-->
     <div class="horizontal">
       <div class="col-sm-5">
-        <img class="d-block w-100" :src="poster" alt="" />
+        <img class="d-block w-100" :src="poster" alt="Movie poster" />
       </div>
       <div class="col-md-7">
         <div class="card-block">
