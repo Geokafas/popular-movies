@@ -5,6 +5,7 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-3">
+            <h1 id="masterTitle">popular movies</h1>
             <app_movies_list
               :titles-list="titlesList"
               :selected-tab="getSelectedTab"
@@ -51,6 +52,9 @@ export default {
     ...mapGetters(["getSelectedId", "getSelectedTab", "getResponseMovies"]),
   },
   watch: {
+    //watch the user selected tab
+    //and based on that call the api to fetch titles
+    //dependind on which tab the user is
     getSelectedTab(value) {
       switch (value) {
         case "news":
@@ -71,14 +75,14 @@ export default {
       "setApiKey",
       "setSelectedId",
     ]),
-    //popuates the list property of the MOvieList component
+    //popuates the list the MovieList component renders
     populateTitlesList(results) {
       this.titlesList = results.map((x) => {
         var obj = { title: x.title, id: x.id };
         return obj;
       });
     },
-    //popuates the list property of the MovieDetails component
+    //popuates the list the MovieDetails component renders
     populateMovieDetailsList(results) {
       this.movieDetailsList = results.map((x) => {
         var movieDetailsObject = {
@@ -95,6 +99,7 @@ export default {
         return movieDetailsObject;
       });
     },
+    //calls the api located in the store
     async callApi(selectedTab) {
       var localtype = "";
       switch (selectedTab) {
@@ -123,6 +128,7 @@ export default {
       } finally {
         this.loading = false;
         this.setSelectedId(0);
+        //populate lists with the results
         this.populateTitlesList(this.getResponseMovies);
         this.populateMovieDetailsList(this.getResponseMovies);
       }
@@ -132,6 +138,9 @@ export default {
     this.$nextTick(function() {
       // Code that will run only after the
       // entire view has been rendered
+      //set a default starting tab
+      //so that the watcher picks that value
+      //and call the api the first time the page is loaded
       this.setSelectedTab("top10");
       return;
     });
@@ -148,5 +157,15 @@ export default {
 }
 body {
   background-image: url("./assets/postersBackground.jpg");
+}
+#masterTitle {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: 1em;
+  color: #c6e2ff;
+  text-shadow: 0 0 2px rgba(202, 228, 225, 0.92),
+    0 0 10px rgba(202, 228, 225, 0.34), 0 0 4px rgba(242, 30, 58, 0.52),
+    0 0 7px rgba(242, 30, 178, 0.92), 0 0 11px rgba(242, 30, 48, 0.78),
+    0 0 16px rgba(242, 30, 58, 0.92);
 }
 </style>

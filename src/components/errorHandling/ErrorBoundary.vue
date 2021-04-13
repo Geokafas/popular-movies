@@ -25,6 +25,7 @@ export default {
       info: null,
     };
   },
+  //if an error occures this method is called and the errorcard.vue is rendered
   errorCaptured(err, vm, info) {
     this.err = err;
     this.vm = vm;
@@ -33,5 +34,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>

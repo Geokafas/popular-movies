@@ -5,8 +5,11 @@ import axios from "axios";
 Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
+    //globally selected id of the movie
     selectedId: 0,
+    //whitch tab is active
     selectedTab: "",
+    //the api response is stored here
     apiResponseMovies: [],
   },
   getters: {

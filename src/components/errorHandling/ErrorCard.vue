@@ -1,4 +1,5 @@
 <template>
+  <!-- This is rendered when an error is picked by the error boundary- -->
   <div class="container-fluid">
     <div class="alert alert-danger" ref="alert">
       <strong>Oh snap!</strong> Something went wrong. Try reloading the page.

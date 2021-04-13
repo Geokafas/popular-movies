@@ -15,7 +15,11 @@
     <div class="collapse navbar-collapse container" id="navbarText">
       <ul class="navbar-nav mr-auto float-right">
         <li class="nav-item">
-          <a class="nav-link " @click="setSelectedTab('top10')" :class="top10"
+          <a
+            class="nav-link "
+            @click="setSelectedTab('top10')"
+            :class="top10"
+            ref="top10"
             >TOP10s
           </a>
         </li>
@@ -24,11 +28,16 @@
             class="nav-link"
             @click="setSelectedTab('trending')"
             :class="trending"
+            ref="trending"
             >Trending</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link" @click="setSelectedTab('news')" :class="newest"
+          <a
+            class="nav-link"
+            @click="setSelectedTab('news')"
+            :class="newest"
+            ref="news"
             >NEW!</a
           >
         </li>
@@ -54,6 +63,8 @@ export default {
     ...mapActions(["setSelectedTab"]),
   },
   watch: {
+    //watches the selectedtab value passed as prop
+    //and changes the active tab in the nav-bar
     activeTag(value) {
       if (value === "top10") {
         this.top10 = "active";

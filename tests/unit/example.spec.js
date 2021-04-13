@@ -1,7 +1,7 @@
 import { shallowMount } from "@vue/test-utils";
 import movies_list from "@/components/listView/MoviesList.vue";
 import movie_details from "@/components/detailsView/MovieDetails.vue";
-import error_card from "@/components/errorHandling/ErrorCard.vue";
+import nav from "@/components/shared/Header.vue";
 
 describe("MovieDetais.vue", () => {
   it("selectedMovieObject", () => {

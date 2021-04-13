@@ -46,6 +46,7 @@ export default {
     "loading",
   ],
   computed: {
+    //calculate the poster path of each item
     poster() {
       console.log(this.$props.loading);
       if (!this.$props.loading) {
@@ -55,6 +56,8 @@ export default {
         return "";
       }
     },
+    //if the card title has a second title not in english
+    //then show both
     cardTitle() {
       if (
         this.$props.language === "en" ||
@@ -71,6 +74,7 @@ export default {
         return "";
       }
     },
+    //calculate star rating
     star1() {
       if (this.$props.rating / 2 >= 1) {
         return "bi bi-star-fill";
@@ -143,11 +147,10 @@ export default {
 .card {
   font-size: 1em;
   overflow: hidden;
-  padding: 5;
   border: none;
   border-radius: 0.28571429rem;
   box-shadow: 0 1px 3px 0 #2c3541d5, 0 0 0 1px #2c3541d5;
-  margin-top: 20px;
+  margin-top: 5%;
   background: #2c3541d5 !important;
   color: aliceblue;
   max-width: 90%;
